@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var student1 = new Object ({fname:"Srinivas",lname:"Srividya"});
+        console.log(student1);
+
+        // Creating a class in Javascript
+
+        class student {
+            constructor(fname,lname,email){
+                this.fname = fname;
+                this.lname = lname;
+                this.email = email;
+            }
+        }
+
+        var student1 = new student ("Srinivas","Vasu","thammineedis@gmail.com");
+        var student2 = new student ("vasu","vidya","vidyachowdary7@gmail.com");
+        var student3 = new student ("vidya","mamatha","mamatha@gmail.com");
+        var student4 = new student("Divya","Anusha","anu@gmail.com");
+
+        console.log(student1,student2,student3,student4)
+    </script>
+</body>
+</html>

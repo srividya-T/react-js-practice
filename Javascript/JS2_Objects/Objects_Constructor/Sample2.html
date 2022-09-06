@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var student1 = {
+        //     course:"Front and Development",
+        //     instructer:"Srinivas",
+        //     studentName:"Vidya"
+        // }
+        // var student2 = {
+        //     course:"Front and Development",
+        //     instructer:"Srinivas",
+        //     studentName:"Vasu"
+        // }
+        // var student3 = {
+        //     course:"Front and Development",
+        //     instructer:"Srinivas",
+        //     studentName:"Mamatha"
+        // }
+        
+        function student (studentName){
+            this.course = "UI Developer";
+            this.instructer = "Srividya";
+            this.studentName = studentName;
+
+            this.courseDetails = function(){
+                return this.course + " " + this.studentName
+            }
+        }
+
+       student.prototype.language = "English"
+
+        var student1 = new student ("mamatha");
+        var student2 = new student ("Ravi");
+        var student3 = new student("murali");
+
+        console.log(student1,student2,student3)
+        console.log(student1.courseDetails())
+        console.log(student1.language)
+    </script>
+</body>
+</html>
