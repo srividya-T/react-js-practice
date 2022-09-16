@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var students = ["Srividya", "Srinivas", "Ravi", "Manikanta","Krishna","His"]
+
+        // students.forEach((value,i)=>{
+        //     document.write(value + -i + "<br>")
+        // })
+        // var newstudents = students.map((val)=>{
+        //     return val + "-Sunline" + "<br>"
+        // })
+        // console.log(newstudents)
+
+        // var char4Names = students.find((val)=>{
+        //     return val.length == 4
+        // })
+
+        // var char4Names = students.filter((val)=>{
+        //     return val.length == 4
+        // })
+        // console.log(char4Names)
+
+        // var check = students.every((val)=>{
+        //     return val.length >= 4
+        // })
+        // console.log(check)
+
+        var check = students.some((val)=>{
+            return val.length == 3
+        })
+        console.log(check)
+    </script>
+</body>
+</html>
