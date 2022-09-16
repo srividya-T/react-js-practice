@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var student = ["Srividya", "Srinivas", "Ravi", "Manikanta","Krishna","Hiss"]
+
+        // student.forEach((val,i)=>{
+        //     document.write(val+" - "+i+"<br>")
+        // })
+
+        // var newstudnet = student.map((val)=>{
+        //     return val + "-Great" 
+        // })
+        // console.log(newstudnet)
+
+        // var check4Name = student.find((val)=>{
+        //     return val.length == 4
+        // })
+        // console.log(check4Name)
+
+        // var check4Name = student.filter((val)=>{
+        //     return val.length == 4
+        // })
+        // console.log(check4Name)
+
+        // var check = student.some((val)=>{
+        //     return val.length == 3
+        // })
+        // console.log(check)
+
+        var check = student.every((val)=>{
+            return val.length >= 4
+        })
+        console.log(check)
+    </script>
+</body>
+</html>
