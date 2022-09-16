@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sayHello()">Click Me</button> 
+    <br>
+    <input type="text" id="" name="" onblur="sayHello()" onfocus="focusFunction()"
+    onchange="handleChange()">
+    <br>
+    <select name="" id="" onchange="handleChange()">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+        <option value="">8</option>
+        <option value="">9</option>
+        <option value="">10</option>
+    </select>
+    <br>
+    <input type="checkbox" value="" onchange="handleChange()">HTML
+    <input type="checkbox" value="" onchange="handleChange()">CSS
+    <input type="checkbox" value="" onchange="handleChange()">JS
+
+    <input type="radio" value="" onchange="handleChange()">Male
+    <input type="radio" value="" onchange="handleChange()">Female
+    <script>
+        // key board Events
+        // key press
+        // key up
+        // key down
+
+        // Mouse Events
+        // mouse move
+        // mouse out
+        // click
+
+        // Document Events - Form Events
+        // focus
+        // blur
+        // change event
+
+        function sayHello (){
+            alert("Hello to Javascript")
+        }
+        function focusFunction(params){
+            console.log("You Just Focused")
+        }
+        function handleChange(params) {
+            console.log("You Just Changed the Value")
+        }
+    </script>
+</body>
+</html>
