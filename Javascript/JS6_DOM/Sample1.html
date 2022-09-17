@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo" onclick="changeDiv()">I am inside div </div>
+    <input type="text" name="myName" id="" value="Ram">
+    <p>I am inside para</p>
+    <h2>I am inside my H2 Class 1</h2>
+    <h2>I am inside my H2 class 2</h2>
+    <h3>I am inside h3 Element</h3>
+    <p class="demo1"></p>
+    <p class="demo1"></p>
+    <p class="demo1"></p>
+    <p class="demo1"></p>
+    <button onclick="settextDiv()">Set text</button>
+    <script>
+        document.write("Hi Welcome")
+        // document.getElementById("demo").innerHTML = "I am From DOM Method !!";
+        // document.getElementsByName("myName")[0].value = "Srinivas";
+        // document.getElementsByTagName("p")[0].innerHTML = "I am from Para";
+        // document.getElementsByClassName("demo1")[3].innerHTML = "I am inside para";
+        // document.querySelector("h2").innerHTML ="I am form First Heading"
+        // document.querySelectorAll("h3")[0].innerHTML = "I am query Selector All Methods"
+        
+        function changeDiv(){
+            document.getElementById("demo").innerHTML = "I am change inside div"
+        }
+        function settextDiv(){
+            document.getElementsByClassName("demo1")[2].innerHTML = "I am set inside div"
+        }
+
+    </script>
+</body>
+</html>
