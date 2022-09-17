@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="left">
+        <button onclick="addUseratStart()">Add A User at Start</button><br><br>
+        <button onclick="addUseratEnd()">Add A User at End</button><br><br>
+        <button onclick="addUseratMiddel()">Add A User at Middle</button><br><br>
+        <button onclick="displayAllDelete()">Delete A User at Start</button><br><br>
+        <button onclick="displayAllDeleteEnd()">Delete A User at End</button><br><br>
+        <button onclick="displayAllDeleteMiddle()">Delete A User at Middle</button><br><br>
+        <button onclick="displayAllsort()">Sort Users</button><br><br>
+        <button onclick="displayAllReverse()">Reverse Users</button>
+    </div>
+    <div id="demo" style="float: right; width: 400px;"></div>
+    <script>
+        var studnets = ["Vasu","Srinivas","Vidya","Srinivas","Ram","Mani","Anu"]
+        function displayAllUsers(){
+            let users="";
+            studnets.forEach((user)=>{
+                users+=user+"<br>"
+            })
+            document.getElementById("demo").innerHTML = users;
+            document.getElementById("demo").style.backgroundColor="pink";
+        }
+        displayAllUsers()
+
+        function addUseratStart(){
+            studnets.unshift("Leela")
+            displayAllUsers()
+        }
+        function addUseratEnd(){
+            studnets.push("Kiran")
+            displayAllUsers()
+        }      
+        function addUseratMiddel(){
+            studnets.splice(2,0,"Siri")
+            displayAllUsers()
+        }  
+        function displayAllDelete(){
+            studnets.shift()
+            displayAllUsers()
+        }
+        function displayAllDeleteEnd(){
+            studnets.pop()
+            displayAllUsers()
+        }
+        function displayAllDeleteMiddle(){
+            studnets.splice(2,1)
+            displayAllUsers()
+        }
+        function displayAllsort(){
+            studnets.sort()
+            displayAllUsers()
+        }
+        function displayAllReverse(){
+            studnets.reverse()
+            displayAllUsers()
+        }
+    </script>
+</body>
+</html>
