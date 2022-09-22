@@ -8,12 +8,42 @@
 </head>
 <body>
     <form action="">
-        <label for="fname">FirstName : </label>
-        <input type="text" name="" id="fname"><br><br>
-        <label for="lname">Last Name : </label>
-        <input type="text" name="" id="lname"><br><br>
+        <label for="userName">User Name : </label>
+        <input type="text" name="" id="userName"><br><br>
+        <label for="password">Password : </label>
+        <input type="text" name="" id="password"><br><br>
         <label for="email">email : </label>
         <input type="text" name="" id="email"><br><br>
+        <label for="dateofbirth"><b>Date of Birth</b></label><br><br>
+        <select id="dob" name=""></select>
+        <select id="monthofBirth">
+            <option value="">Month</option>
+            <option value="Jan">Jan</option>
+            <option value="Feb">Feb</option>
+            <option value="Mar">Mar</option>            
+            <option value="April">April</option>            
+            <option value="May">May</option>            
+            <option value="Jun">Jun</option>            
+            <option value="Jully">Jully</option>            
+            <option value="Aug">Aug</option>            
+            <option value="Sep">Sep</option>            
+            <option value="Oct">Oct</option>            
+            <option value="Nov">Nov</option>            
+            <option value="Dec">Dec</option>   
+        </select>
+        <select id="yearofbirth" name="">
+            <option value="">Year</option>
+            <option value="1987">1984</option>
+            <option value="1987">1985</option>
+            <option value="1987">1986</option>
+            <option value="1987">1987</option>
+            <option value="1988">1988</option>
+            <option value="1989">1989</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+        </select><br><br>
         <button type="button" onclick="addUser()">Add user</button>
     </form>
     <br>
@@ -21,9 +51,10 @@
     <table border="1">
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Password</th>
                 <th>Email</th>
+                <th>Date Of Birth</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -31,16 +62,31 @@
         <tbody></tbody>
     </table>
     <script>
+        let i = 1;
+        while(i<31){
+            var opt =document.createElement("option")
+            opt.innerHTML = i
+            opt.setAttribute("value",i)
+            document.getElementById("dob").appendChild(opt)
+            i++
+        }
+
         var allUsers = JSON.parse(localStorage.getItem("allUsers"));
         if(allUsers == null){
             allUsers = []
         }
         function addUser(){
             var user = {
-                fname : document.getElementById("fname").value,
-                lname: document.getElementById("lname").value,
-                email: document.getElementById("email").value
+                userName : document.getElementById("userName").value,
+                password: document.getElementById("password").value,
+                email: document.getElementById("email").value               
             }
+            var dateofBirth = document.getElementById("dob").value;
+            var monthofBirth = document.getElementById("monthofBirth").value;
+            var yearofBirth = document.getElementById("yearofbirth").value;
+
+            user.dob = dateofBirth + "-"+ monthofBirth+"-"+yearofBirth
+
             allUsers.push(user);
             localStorage.setItem("allUsers",JSON.stringify(allUsers));
             displayUser(allUsers); 

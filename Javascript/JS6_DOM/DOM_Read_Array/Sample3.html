@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample_3</title>
+</head>
+<body>
+    <form action="">
+        <label for="fname">First Name</label>
+        <input type="text" name="" id="fname" onkeyup="validate()" ><br><br>
+
+        <label for="lname">Last Name</label>
+        <input type="text" name="" id="lname" onkeyup="validate()" ><br><br>
+
+        <label for="email">Email</label>
+        <input type="text" name="" id="email" onkeyup="validate()" ><br><br>
+
+        <button type="button" onclick="addUser()" id="someUser" disabled>Add User</button>
+    </form>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var allUsers = JSON.parse(localStorage.getItem("allUsers"));
+        if(allUsers == null){
+            allUsers = []
+        }
+        function addUser(){
+            var user = {
+                fname : document.getElementById("fname").value,
+                lname : document.getElementById("lname").value,
+                email : document.getElementById("email").value
+            }            
+            allUsers.push(user);
+            document.getElementById("someUser").setAttribute("disabled",true)
+            localStorage.setItem("allUsers",JSON.stringify(allUsers));
+            displayUser(allUsers);
+            clearForm()
+        }
+        function clearForm(){
+            document.getElementById("fname").value = "",
+            document.getElementById("lname").value = "",
+            document.getElementById("email").value = ""
+        }
+        function displayUser(data){
+            document.querySelector("tbody").innerHTML = ""
+            data.forEach((user,i)=> {
+                var myTr = document.createElement("tr")     
+                for(a in user){
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = user[a]
+                    myTr.appendChild(myTd)
+                }   
+                var editTd = document.createElement("td")       
+                var editbtn = document.createElement("button")
+                editbtn.setAttribute("onclick","editUser("+i+")")
+                editbtn.innerHTML = "Edit"
+                editTd.appendChild(editbtn)
+                myTr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td") 
+                var deletebtn = document.createElement("button")
+                deletebtn.setAttribute("onclick","deleteUser("+i+")")
+                deletebtn.innerHTML = "Delete"
+                deleteTd.appendChild(deletebtn)
+                myTr.appendChild(deleteTd)
+
+                document.querySelector("tbody").appendChild(myTr)
+            });
+        }
+        function editUser(i){
+            console.log("Edit User called"+i)
+        }
+        function deleteUser(i){
+            allUsers.splice(i,1)
+            displayUser(allUsers)
+        }
+        displayUser(allUsers)
+        function validate(){
+            var user = {
+                fname : document.getElementById("fname").value,
+                lname : document.getElementById("lname").value,
+                email : document.getElementById("email").value
+            }
+            var check = false;
+            for (a in user){
+                if(user[a] == ""){
+                    check = true
+                }
+            }
+            if(check == true){
+                document.getElementById("someUser").setAttribute("disabled",true)
+            }else{
+                document.getElementById("someUser").removeAttribute("disabled")
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

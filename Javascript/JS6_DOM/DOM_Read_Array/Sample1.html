@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sample_1</title>
 </head>
 <body>
     <form action="">
         <label for="fname">First Name : </label>
-        <input type="text" name="" id="fname"> <br><br>
+        <input type="text" name="" id="fname" onkeyup="validate()"> <br><br>
         <label for="lname">Last Name : </label>
-        <input type="text" name="" id="lname"><br><br>
+        <input type="text" name="" id="lname" onkeyup="validate()"><br><br>
         <label for="email">Email : </label>
-        <input type="text" name="" id="email"><br><br>
-        <button type="button" onclick="addUser()">Add User</button>
+        <input type="text" name="" id="email" onkeyup="validate()"><br><br>
+        <button type="button" onclick="addUser()" id="someUser" disabled>Add User</button>
     </form>
     <hr>
     <table border="1">
@@ -44,8 +44,9 @@
             }
             allUsers.push(user);
             // storing in Local storage
-
+            document.getElementById("someUser").setAttribute("disabled",true)
             localStorage.setItem("allUsers",JSON.stringify(allUsers))
+            
 
             displayUser(allUsers);
             clearForm();
@@ -86,10 +87,29 @@
             console.log("Edit User called"+i)
         }
         function deleteUser(i){
-            allUsers.splice(i,1)
-        displayUser(allUsers)
+            allUsers.splice(i,1);
+            displayUser(allUsers);
         }
         displayUser(allUsers)
+
+        function validate(){
+            var user = {
+                fname : document.getElementById("fname").value,
+                lname : document.getElementById("lname").value,
+                email : document.getElementById("email").value
+            }
+            var check = false;
+            for(a in user){
+                if (user[a] == ""){
+                    check = true
+                }
+            }
+            if(check == true){
+                document.getElementById("someUser").setAttribute("disabled",true)
+            }else{
+                document.getElementById("someUser").removeAttribute("disabled")
+            }
+        }
     </script>
 </body>
 </html>
