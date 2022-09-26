@@ -47,7 +47,7 @@
             document.getElementById("someUser").setAttribute("disabled",true)
             localStorage.setItem("allUsers",JSON.stringify(allUsers));
             displayUser(allUsers);
-            clearForm()
+            clearForm(user)
         }
         function clearForm(){
             document.getElementById("fname").value = "",
