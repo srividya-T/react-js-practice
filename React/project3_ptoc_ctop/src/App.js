@@ -1,19 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import Parent_1 from './ParentToChildComp/Parent_1';
 import FillTextUser from './Components/FillTextUser';
-import Parent_2 from './ParentToChildComp/Parent_2';
-import Parent_3 from './ParentToChildComp/Parent_3';
-import Studnet_1 from './ParentToChildComp/Studnet_1';
+import FillTexUser1 from './Components/ClassComp/FillTexUser1';
+import { ClassComp } from './ParentToChild_class/ClassComp';
+import { AllComp } from './ParentToChildComp_Fun/AllComp';
+import { AllFunctionalComp } from './ParentTochild_button_fun/AllFunctionalComp';
+import { Child_p_Fun } from './ChildTo_Parent_fun/Child_p_Fun';
+import { Child_P_Class } from './ChildToParent_Class/Child_P_Class';
 
 function App() {
   return (
     <div className="App">
-      {/* <Parent_1/> */}
       {/* <FillTextUser/> */}
-      {/* <Parent_2/> */}
-      {/* <Parent_3/> */}
-      <Studnet_1/>
+      {/* <FillTexUser1/> */}
+      {/* <AllComp/> */}
+      {/* <AllFunctionalComp/> */}
+      {/* <ClassComp/> */}
+      {/* <Child_p_Fun/> */}
+      <Child_P_Class/>
     </div>
   );
 }
