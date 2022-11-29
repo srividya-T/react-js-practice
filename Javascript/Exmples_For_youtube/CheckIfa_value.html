@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //How do you check if a value is inside an array in JS
+        const array = [1, 2, 3];
+        const index = array.indexOf(5);
+
+        if (index == -1) {
+            console.log("not exists");
+        }
+        if (array.includes(1)){
+            console.log("exists");
+        }
+        
+        console.log(array.includes(1));
+        console.log(array.includes(5));
+
+    </script>
+</body>
+</html>
