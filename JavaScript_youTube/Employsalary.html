@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getEmployesalarys(){
+            return [
+                {name: 'Vasu', salary: 1200},
+                {name: 'Vidya', salary: 600}
+            ]
+        }
+        let employesalary = getEmployesalarys();
+        console.log(employesalary[0].salary);
+        console.log(employesalary[1].salary);
+
+        let totalsalary = 0;
+        for(let e of employesalary){
+            totalsalary += e.salary
+        }
+        console.log(totalsalary);
+
+        let ts = employesalary.reduce(
+            (a,b) => a.salary + b.salary
+        );
+        console.log(ts)
+    </script>
+</body>
+</html>

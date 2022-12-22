@@ -10,7 +10,7 @@
     <script>
       function capitalizeFirstLetter(str) {
         //converting first letter to uppercase
-        const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+        const capitalized = str.charAt(0).toUpperCase() + str.splice(1);
         return capitalized;
       }
       //take input
@@ -22,3 +22,4 @@
     </script>
   </body>
 </html>
+<!-- str.charAt(0).toUpperCase() + str.slice(1); -->
