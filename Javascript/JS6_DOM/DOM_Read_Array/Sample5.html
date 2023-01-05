@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #mydiv {
+        border: 2px solid;
+        width: 310px;
+        margin-left: 500px;
+        background-color: aqua;
+        text-align: center;
+      }
+      form {
+        margin: 10px;
+      }
+      th {
+        background-color: rgb(0, 255, 21);
+      }
+
+      td {
+        color: blue;
+        background-color: lightblue;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mydiv">
+      <form>
+        <label for="fname">First Name: </label>
+        <input type="text" name="" id="fname" onkeyup="validate()"/><br /><br />
+        <label for="lname">Last Name: </label>
+        <input type="text" name="" id="lname" onkeyup="validate()" /><br /><br />
+        <label for="email">Email: </label>
+        <input type="text" name="" id="email" onkeyup="validate()" /><br /><br />
+        <label for="dateofBirth">Date of Birth: </label>
+        <select id="dob" name="" onkeyup="validate()"></select>
+        <select id="monthofBirth" onkeyup="validate()">
+          <option value="Jan">Jan</option>
+          <option value="Feb">Feb</option>
+          <option value="Mar">Mar</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="Jun">Jun</option>
+          <option value="Jully">Jully</option>
+          <option value="Aug">Aug</option>
+          <option value="Sep">Sep</option>
+          <option value="Oct">Oct</option>
+          <option value="Nov">Nov</option>
+          <option value="Dec">Dec</option>
+        </select>
+        <select id="yearofbirth" name="" onkeyup="validate()"></select
+        ><br /><br />
+        <button type="button" id="userAdd" onclick="addUser()" disabled>Add Users</button>
+      </form>
+    </div>
+    <br />
+    <hr />
+    <table border="1">
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var i = 1;
+      while (i <= 30) {
+        var opt = document.createElement("option");
+        opt.innerHTML = i;
+        opt.setAttribute("value", i);
+        document.getElementById("dob").appendChild(opt);
+        i++;
+      }
+      var i = 1946;
+      while (i <= 2025) {
+        var opt = document.createElement("option");
+        opt.innerHTML = i;
+        opt.setAttribute("value", i);
+        document.getElementById("yearofbirth").appendChild(opt);
+        i++;
+      }
+      var allUsers = [];
+      function addUser() {
+        var user = {
+          fname: document.getElementById("fname").value,
+          lname: document.getElementById("lname").value,
+          email: document.getElementById("email").value,
+        };
+        var dateofBirth = document.getElementById("dob").value;
+        var monthofBirth = document.getElementById("monthofBirth").value;
+        var yearofbirth = document.getElementById("yearofbirth").value;
+        user.dob = dateofBirth + " _ " + monthofBirth + " - " + yearofbirth;
+
+        allUsers.push(user);
+        document.getElementById("userAdd").setAttribute("disabled", true) 
+        displayUser(allUsers);
+        clearForm()
+      }
+      function clearForm(){
+        document.getElementById("fname").value = ""
+        document.getElementById("lname").value = ""
+        document.getElementById("email").value = ""
+        // document.getElementById("dob").value = ""
+        // document.getElementById("monthofBirth").value = ""
+        // document.getElementById("yearofbirth").value = ""
+      }
+      function displayUser(data) {
+        document.querySelector("tbody").innerHTML = ""
+        data.forEach((user, i) => {
+          var myTr = document.createElement("tr");
+          for (a in user) {
+            var myTd = document.createElement("td");
+            myTd.innerHTML = user[a];
+            myTr.appendChild(myTd);
+          }
+          var editTd = document.createElement("td");
+          var editbtn = document.createElement("button");
+          editbtn.setAttribute("onclick", "editUser(" + i + ")");
+          editbtn.innerHTML = "Edit";
+          editTd.appendChild(editbtn);
+          myTr.appendChild(editTd);
+
+          var deleteTd = document.createElement("td");
+          var deletbtn = document.createElement("button");
+          deletbtn.setAttribute("onclick", "deleteUser(" + i + ")");
+          deletbtn.innerHTML = "Delete";
+          deleteTd.appendChild(deletbtn);
+          myTr.appendChild(deleteTd);
+
+          document.querySelector("tbody").appendChild(myTr);
+        });
+      }
+      function editUser(i) {
+        console.log("Edit user called + i");
+      }
+      function deleteUser(i) {
+        allUsers.splice(i, 1);
+        displayUser(allUsers);
+      }
+      displayUser(allUsers);
+      function validate(){
+        var user = {
+          fname: document.getElementById("fname").value,
+          lname: document.getElementById("lname").value,
+          email: document.getElementById("email").value,
+        };
+        var dateofBirth = document.getElementById("dob").value;
+        var monthofBirth = document.getElementById("monthofBirth").value;
+        var yearofbirth = document.getElementById("yearofbirth").value;
+
+        var check = false
+        for(a in user){
+            if(user[a] == ""){
+                check = true
+            }
+        }
+        if(check == true){
+            document.getElementById("userAdd").setAttribute("disabled", true) 
+        }else{
+            document.getElementById("userAdd").removeAttribute("disabled") 
+        }
+      }
+    </script>
+  </body>
+</html>
